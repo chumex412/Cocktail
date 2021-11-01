@@ -1,38 +1,277 @@
-.App {
-  text-align: center;
+.page-header {
+  background-color: var(--mainWhite);
+  border-bottom: 2px solid var(--primaryColor);
+  box-shadow: var(--lightShadow);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-list {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2rem;
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-header h1 {
+  font-size: calc(2rem * var(--type-scale));
+  line-height: calc(2.9rem * var(--height-scale));
+  font-weight: 700;
+  color: var(--primaryColor);
+}
+
+.nav-link {
+  font-size: calc(1.6rem * var(--type-scale));
+  line-height: calc(2.1rem * var(--height-scale));
+  font-weight: 400;
+  color: var(--primaryColor);
+  text-decoration: none;
+  padding: 1rem;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.nav-link.active {
+  color: var(--primaryLightColor);
+}
+
+.nav-link:hover {
+  color: var(--primaryLightColor);
+}
+
+/* Search field */
+
+.search-field {
+  max-width: 560px;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin: 5rem auto 0;
+}
+
+.search-field form {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: var(--mainWhite);
+  -webkit-box-shadow: var(--lightShadow);
+  -moz-box-shadow: var(--lightShadow);
+  box-shadow: var(--lightShadow);
+}
+
+.form-group {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.form-group input {
+  padding: 1rem;
+}
+
+.form-group label {
+  font-size: calc(1.6rem * var(--type-scale));
+  line-height: calc(2.1rem * var(--height-scale));
+  font-weight: 600;
+  color: var(--primaryColor);
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+}
+
+/* Cocktail */
+
+.cocktail-header,
+.cocktail-wrapper > h3 {
+  text-align: center;
+  color: var(--mainBlack);
+}
+
+.cocktail-header {
+  font-size: calc(2rem * var(--type-scale));
+  line-height: calc(3rem * var(--height-scale));
+  font-weight: 600;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.cocktail-wrapper > h3 {
+  font-size: calc(1.8rem * var(--type-scale));
+  line-height: calc(2.5rem * var(--height-scale));
+}
+
+.cocktail-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 5rem 2rem;
+  padding: 2rem 0;
+}
+
+/* Single Cocktail */
+
+.single-cocktail-wrapper {
+  padding: 5rem 0 1rem;
+  max-width: 400px;
+}
+
+.cocktail-content > p {
+  padding: 0.5rem 0;
+  font-size: calc(1.6rem * var(--type-scale));
+  line-height: calc(2.1rem * var(--height-scale));
+  font-weight: 600;
+  max-width: 560px;
+}
+
+.cocktail-img-wrapper img {
+  height: 50vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+span.cocktail-label {
+  background-color: var(--primaryLightColor);
+  color: var(--primaryColor);
+  padding: 0.5rem;
+}
+
+.cocktail-content span {
+  display: inline-block;
+}
+
+.ingredient {
+  position: relative;
+}
+
+.ingredient::after {
+  position: absolute;
+  bottom: 0.05rem;
+  right: -0.4rem;
+  content: "\002C";
+  color: var(--mainBlack);
+}
+
+.ingredient:last-child::after {
+  content: "\002E";
+  bottom: 0;
+}
+
+/* Loader */
+
+.loader-wrapper {
+  height: 50vh;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.loader span {
+  display: inline-block;
+  font-size: calc(4.4rem * var(--type-scale));
+  line-height: calc(5.7rem * var(--height-scale));
+  -webkit-text-stroke: 2px var(--primaryColor);
+  color: var(--mainGrey);
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-animation: loader 1.2s linear infinite 0.1s;
+  animation: loader 1.2s linear infinite 0.1s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.loader span:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.loader span:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.loader span:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.loader span:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.loader span:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+.loader span:nth-child(9) {
+  animation-delay: 0.9s;
+}
+
+.loader span:last-child {
+  animation-delay: 1s;
+}
+
+
+@keyframes loader {
+  20% {
+    transform: scale(1);
+    color: var(--mainRed);
+    -webkit-text-stroke: 3px var(--primaryLightColor);
+    filter: drop-shadow(0 0 1px var(--darkBlack)) 
+            drop-shadow(0 0 1px var(--darkBlack))
+            drop-shadow(0 0 3px var(--mainRed))
+            drop-shadow(0 0 5px var(--mainRed))
+            hue-rotate(10turn);
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    transform: scale(0.5);
+    color: var(--mainGrey);
+    -webkit-text-stroke: 2px var(--primaryColor);
   }
+}
+
+@-webkit-keyframes loader {
+  20% {
+    -webkit-transform: scale(1);
+    color: var(--mainRed);
+    -webkit-text-stroke: 3px var(--primaryLightColor);
+    filter: drop-shadow(0 0 1px var(--darkBlack)) 
+            drop-shadow(0 0 1px var(--darkBlack))
+            drop-shadow(0 0 3px var(--mainRed))
+            drop-shadow(0 0 5px var(--mainRed))
+            hue-rotate(10turn);
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+    color: var(--mainGrey);
+    -webkit-text-stroke: 2px var(--primaryColor);
+  }
+}
+
+/* About Us section */
+
+.about-us-wrapper {
+  padding: 5rem 0;
+  color: var(--mainBlack);
+}
+
+.about-us h2 {
+  font-size: calc(2.4rem * var(--type-scale));
+  line-height: calc(3.3rem * var(--height-scale));
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.about-us p {
+  font-size: calc(1.8rem * var(--type-scale));
+  line-height: calc(2.5rem * var(--type-scale));
 }
